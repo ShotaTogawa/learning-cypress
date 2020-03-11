@@ -23,13 +23,13 @@ describe('Browser Actions', () => {
 		cy.url().should('include', 'example.com');
 	});
 
-	it('should wait for 3 seconds', () => {
-		cy.wait(3000);
-	});
+	// it('should wait for 3 seconds', () => {
+	// 	cy.wait(3000);
+	// });
 
-	it('should pause the execution', () => {
-		cy.pause();
-	});
+	// it('should pause the execution', () => {
+	// 	cy.pause();
+	// });
 
 	it('should check for correct element on the page', () => {
 		cy.get('h1').should('be.visible');
@@ -40,6 +40,9 @@ describe('Browser Actions', () => {
 	it('should load books website', () => {
 		cy.visit('http://books.toscrape.com/index.html', { timeout: 10000 });
 		cy.url().should('include', 'index.html');
+		cy.log('Before Reload');
+		cy.reload();
+		cy.log('After reload');
 	});
 
 	it('should click on Travel category', () => {
@@ -66,11 +69,5 @@ describe('Browser Actions', () => {
 		cy.visit('http://books.toscrape.com/catalogue/olio_984/index.html');
 		cy.get('h1').contains('Olio');
 		cy.get('.price_color').contains('£23.88');
-	});
-
-	it('should click on Olio book detail', () => {
-		cy.get('a')
-			.contains('Olio')
-			.click();
 	});
 });
