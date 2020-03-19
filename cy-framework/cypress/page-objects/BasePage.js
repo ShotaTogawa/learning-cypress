@@ -1,0 +1,25 @@
+export default class BasePage {
+	static pause(ms) {
+		cy.wait(ms);
+	}
+
+	static logInfo(message) {
+		cy.log(message);
+	}
+
+	static setMobileViewPort() {
+		cy.viewport('iphone-x');
+	}
+
+	static setTableViewPort() {
+		cy.viewport('ipad-2');
+	}
+
+	static setDesktopViewPort() {
+		cy.viewport('macbook-13');
+	}
+
+	static setLergeDesktopViewPort() {
+		cy.viewport(1980, 1080);
+	}
+}
